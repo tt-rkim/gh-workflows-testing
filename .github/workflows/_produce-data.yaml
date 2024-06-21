@@ -6,11 +6,12 @@ on:
     inputs:
       test_workflow_run_id:
         description: "Unique GitHub workflow run ID to use for data"
-        default: 9605916313
+        default: 9612854120
         type: number
   workflow_run:
     workflows:
       - "Build"
+      - "it is me"
     types:
       - completed
 
