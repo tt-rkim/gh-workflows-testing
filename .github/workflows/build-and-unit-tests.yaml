@@ -1,4 +1,4 @@
-name: "All post-commit workflows"
+name: "(post-commit) all - Static checks, linters etc."
 
 on:
   workflow_call:
