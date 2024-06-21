@@ -13,6 +13,11 @@ on:
       - "Build"
       - "(post-commit) all - Static checks, linters etc."
       - "All post-commit workflows"
+      - "[TG] TG model perf tests"
+      - "Model perf regressions and output report"
+      - "Device perf regressions and output report"
+      - "[T3K] T3000 model perf tests"
+      - "[TGG] TGG model perf tests"
     types:
       - completed
 
@@ -27,20 +32,20 @@ jobs:
           GH_TOKEN: ${{ github.token }}
         run: |
           echo "[Info] Workflow run attempt"
-          gh api /repos/${{ github.action_repository }}/actions/runs/${{ inputs.test_workflow_run_id }}/attempts/1
-          gh api /repos/${{ github.action_repository }}/actions/runs/${{ inputs.test_workflow_run_id }}/attempts/1 > workflow.json
+          gh api /repos/tt-rkim/gh-workflows-testing/actions/runs/${{ inputs.test_workflow_run_id }}/attempts/1
+          gh api /repos/tt-rkim/gh-workflows-testing/actions/runs/${{ inputs.test_workflow_run_id }}/attempts/1 > workflow.json
           echo "[Info] Workflow run attempt jobs"
-          gh api --paginate /repos/${{ github.action_repository }}/actions/runs/${{ inputs.test_workflow_run_id }}/attempts/1/jobs
-          gh api --paginate /repos/${{ github.action_repository }}/actions/runs/${{ inputs.test_workflow_run_id }}/attempts/1/jobs > workflow_jobs.json
+          gh api --paginate /repos/tt-rkim/gh-workflows-testing/actions/runs/${{ inputs.test_workflow_run_id }}/attempts/1/jobs
+          gh api --paginate /repos/tt-rkim/gh-workflows-testing/actions/runs/${{ inputs.test_workflow_run_id }}/attempts/1/jobs > workflow_jobs.json
       - name: Output auxiliary values (workflow_run completed)
         if: ${{ github.event_name == 'workflow_run' }}
         env:
           GH_TOKEN: ${{ github.token }}
         run: |
           echo "[Info] Workflow run attempt"
-          gh api /repos/${{ github.action_repository }}/actions/runs/${{ github.event.workflow_run.id }}/attempts/${{ github.event.workflow_run.run_attempt }} > workflow.json
+          gh api /repos/tt-rkim/gh-workflows-testing/actions/runs/${{ github.event.workflow_run.id }}/attempts/${{ github.event.workflow_run.run_attempt }} > workflow.json
           echo "[Info] Workflow run attempt jobs"
-          gh api --paginate /repos/${{ github.action_repository }}/actions/runs/${{ github.event.workflow_run.id }}/attempts/${{ github.event.workflow_run.run_attempt }}/jobs > workflow_jobs.json
+          gh api --paginate /repos/tt-rkim/gh-workflows-testing/actions/runs/${{ github.event.workflow_run.id }}/attempts/${{ github.event.workflow_run.run_attempt }}/jobs > workflow_jobs.json
       - uses: actions/upload-artifact@v4
         with:
           path: |
