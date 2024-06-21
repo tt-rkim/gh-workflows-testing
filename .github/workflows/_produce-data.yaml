@@ -18,6 +18,8 @@ on:
       - "Device perf regressions and output report"
       - "[T3K] T3000 model perf tests"
       - "[TGG] TGG model perf tests"
+      - "(Single-card) Model perf regressions and output report"
+      - "(Single-card) Device perf regressions and output report"
     types:
       - completed
 
