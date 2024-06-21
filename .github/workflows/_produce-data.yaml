@@ -11,7 +11,7 @@ on:
   workflow_run:
     workflows:
       - "Build"
-      - "[post\-commit] all \- Static checks, linters etc\."
+      - "(post-commit) all - Static checks, linters etc."
       - "All post-commit workflows"
     types:
       - completed
