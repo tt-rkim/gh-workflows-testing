@@ -1,4 +1,4 @@
-name: "[T3K] T3000 model perf tests"
+name: "(post-commit) all - Static checks, linters etc."
 
 on:
   workflow_call:
