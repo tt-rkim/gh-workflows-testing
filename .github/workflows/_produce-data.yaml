@@ -11,7 +11,7 @@ on:
   workflow_run:
     workflows:
       - "Build"
-      - "(sdf) it's me"
+      - "(internal) it's me"
     types:
       - completed
 
