@@ -1,4 +1,4 @@
-name: "[internal] Build"
+name: "[post-commit] all - Static checks, linters etc."
 
 on:
   workflow_call:
