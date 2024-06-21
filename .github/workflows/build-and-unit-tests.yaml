@@ -1,4 +1,4 @@
-name: "(post-commit) all - Static checks, linters etc."
+name: "(TG) TG model perf tests"
 
 on:
   workflow_call:
